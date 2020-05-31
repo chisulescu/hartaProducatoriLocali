@@ -1,5 +1,5 @@
 import React from 'react';
-import {Jumbotron} from 'react-bootstrap';
+import {Jumbotron, Image} from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 //import clase
 
@@ -8,7 +8,8 @@ class Welcome extends React.Component {
         render () {
                     return (
                         <div>
-                            <ReactPlayer class="shadow-lg p-2 mb-5 bg-white rounded"
+                            <Image src="https://cdn.pixabay.com/photo/2015/09/02/12/34/fence-918535_1280.jpg" fluid width="100%" />
+                            <ReactPlayer class="shadow"
                             url={[
                                 {src: './video/video2.mp4', type: 'video/ogg'},
                                 {src: './video/video1.mp4', type: 'video/ogg'}

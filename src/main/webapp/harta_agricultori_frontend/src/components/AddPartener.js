@@ -17,7 +17,7 @@ class AddPartener extends React.Component {
 
         initialState = {
             tara:'', producator:'', nume_firma:'', judet:'', categorie:'', sub_categorie:'', descriere_producator:'',
-            email:'', telefon:'', website:'', facebook:'', checkbox:''
+            email:'', telefon:'', website:'', facebook:'', checkbox:'', latitude:'', longitude:''
         }
 
         submitPartener = event => {
@@ -34,7 +34,10 @@ class AddPartener extends React.Component {
             email: this.state.email,
             telefon: this.state.telefon,
             website: this.state.website,
-            facebook: this.state.facebook
+            facebook: this.state.facebook,
+            localhost: this.state.location,
+            latitude: this.state.latitude,
+            longitude: this.state.longitude
             };
 
             axios.post("http://localhost:8080/customers", customer)
@@ -56,8 +59,13 @@ class AddPartener extends React.Component {
             });
         }
 
+         setLocation = (latidudeFromMap, longitudeFromMap)=>{
+                this.state.latitude = latidudeFromMap;
+                this.state.longitude = longitudeFromMap;
+        }
+
         render () {
-             const {tara, producator, nume_firma, judet, categorie, sub_categorie, descriere_producator, email, telefon, website, facebook} = this.state;
+             const {tara, producator, nume_firma, judet, categorie, sub_categorie, descriere_producator, email, telefon, website, facebook, location} = this.state;
 
              return (
                     <div>
@@ -188,28 +196,38 @@ class AddPartener extends React.Component {
                                                    className="bg-white text-gree"/>
                                                 </Form.Group>
                                             </Form.Row>
-                                            <div lassName={"shadow p-3 mb-5 bg-white rounded"}>
-                                                <PartenersMap/>
-                                            </div>
+                                            <Form.Row>
+                                            <Form.Group as={Col} controlId="FormGridEmail">
+                                                 <Form.Label>Select your location</Form.Label>
+                                                 <div className={"shadow"}>
+                                                     <PartenersMap
+                                                     name="location"
+                                                     value={location}
+                                                     onChange={this.partnerRegistered}
+                                                     getLocation={this.setLocation.bind(this)}
+                                                     />
+                                                 </div>
+                                              </Form.Group>
+                                            </Form.Row>
                                             <Form.Row>
                                                 <Form.Group as={Col} controlId="FormGridCheckbox">
                                                     <Form.Check required
-                                                    name="checkbox"
                                                     type="checkbox"
+                                                    name="checkbox"
                                                     value={this.state.checkbox}
                                                     onChange={this.partnerRegistered}
                                                     label="Sunt de acord cu termenii și condițiile producatoridinromania.ro" />
                                                 </Form.Group>
-                                                </Form.Row>
+                                            </Form.Row>
                                         </Card.Body>
                                         <Card.Footer className="border border-white bg-white footerRegister">
-                                         <Button size ="sm" variant="success" type="submit">
+                                         <Button size ="mm" variant="success" type="submit">
                                              Inscrie-te
                                          </Button>
                                         </Card.Footer>
                                    </Form>
                                </Card>
-                               spatiu
+
                           </div>
 
                      );

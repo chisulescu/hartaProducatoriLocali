@@ -45,6 +45,12 @@ public class Customer {
     @NotNull
     private String facebook;
 
+    @NotNull
+    private String longitude;
+
+    @NotNull
+    private String latitude;
+
     public Long getId() {
         return id;
     }
@@ -139,5 +145,21 @@ public class Customer {
 
     public void setFacebook(String facebook) {
         this.facebook = facebook;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 }

@@ -1,56 +1,58 @@
-import "mapbox-gl/dist/mapbox-gl.css"
-import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
-import React, { Component } from 'react'
-import MapGL from "react-map-gl";
-import Geocoder from "react-map-gl-geocoder";
+import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import L from 'leaflet';
+import './styling/Map.css';
 
-class PartenerMap extends Component {
-  state = {
-    viewport :{
-      latitude: 46.770920,
-      longitude: 23.589920,
-      zoom: 6
-    }
-  }
-  mapRef = React.createRef()
+L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
-  handleViewportChange = viewport => {
-    this.setState({
-      viewport: { ...this.state.viewport, ...viewport }
-    })
-  }
-  handleGeocoderViewportChange = viewport => {
-    const geocoderDefaultOverrides = { transitionDuration: 1000 };
+class PartenersMap extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = this.initialState;
+            this.state.draggable=true;
+          };
 
-    return this.handleViewportChange({
-      ...viewport,
-      ...geocoderDefaultOverrides
-    });
-  };
+        initialState = {
+            lat: 46.770920,
+            lng: 23.589920,
+            zoom: 10
+          };
 
-    render(){
-      const { viewport } = this.state
-      return (
-        <div style={{ height: '120vh'}}>
-          <MapGL
-            ref={this.mapRef}
-            {...viewport}
-            mapStyle="mapbox://styles/mapbox/streets-v9"
-            width="100%"
-            height="90%"
-            onViewportChange={this.handleViewportChange}
-            mapboxApiAccessToken={"pk.eyJ1IjoiY2hpc3VsZXNjdSIsImEiOiJja2FtdXBxb3MxN3A0MzBwaWtzazNzM2psIn0.uIO_5R9FqNRGduQ_TSa6Ag"}
-            >
-              <Geocoder
-                mapRef={this.mapRef}
-                onViewportChange={this.handleGeocoderViewportChange}
-                mapboxApiAccessToken={"pk.eyJ1IjoiY2hpc3VsZXNjdSIsImEiOiJja2FtdXBxb3MxN3A0MzBwaWtzazNzM2psIn0.uIO_5R9FqNRGduQ_TSa6Ag"}
-                position='top-left'
-              />
-            </MapGL>
-        </div>
-      )
-    }
+       toggleDraggable = () => {
+          this.setState({ draggable: !this.state.draggable })
+       }
+
+        addressMarker = (event) => {
+         this.state.lat = event.target.getLatLng().lat;
+         this.state.lng = event.target.getLatLng().lng;
+         console.log(this.state.lat);
+         console.log(this.state.lng);
+         console.log("Am ajuns pe aici");
+         this.props.getLocation(event.target.getLatLng().lat, event.target.getLatLng().lng);
+         }
+
+        render () {
+            var center = [this.state.lat, this.state.lng];
+
+            return (
+                <Map zoom={this.state.zoom} center={center} style={{ width: '100%', height: '700px'}}>
+                   <TileLayer
+                            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                    />
+                    <Marker
+                        position={center}
+                        draggable={this.state.draggable}
+                        onDragend={this.addressMarker}>
+                        <Popup>
+                            <span onClick={this.toggleDraggable}>
+                              {this.state.draggable ? `Hello` : 'MARKER FIXED'}
+                            </span>
+                       </Popup>
+                    </Marker>
+                </Map>
+              );
+
+        }
 }
-
-export default PartenerMap;
+export default PartenersMap;
