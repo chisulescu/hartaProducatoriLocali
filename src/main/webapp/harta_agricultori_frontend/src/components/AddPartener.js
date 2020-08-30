@@ -4,6 +4,7 @@ import ToastComponent from './ToastComponent';
 import PartenersMap from './PartenersMap';
 
 import axios from 'axios';
+import {registerPartner} from "../blockchain/BlockchainService";
 
 class AddPartener extends React.Component {
 
@@ -39,6 +40,9 @@ class AddPartener extends React.Component {
             latitude: this.state.latitude,
             longitude: this.state.longitude
             };
+
+            console.log(customer)
+            registerPartner(customer)
 
             axios.post("http://localhost:8080/customers", customer)
                 .then(response => {

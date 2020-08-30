@@ -3,6 +3,7 @@ import {Card, Table, ButtonGroup, Button} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit, faTrash} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import {getAllPartners} from "../blockchain/BlockchainService";
 
 class Partener extends React.Component {
 
@@ -18,11 +19,14 @@ class Partener extends React.Component {
         }
 
         findAllCustomers(){
-            axios.get("http://localhost:8080/customers")
-            .then(response => response.data)
-            .then((data) => {
-                this.setState({customers: data});
-            });
+            getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+
+            // axios.get("http://localhost:8080/customers")
+            // .then(response => response.data)
+            // .then((data) => {
+            //     this.setState({customers: data});
+            //     console.log(data)
+            // });
         }
 /* Jos unde se insereaza iamgiena am pus acele doua paranteze dinainte de customer.title ca sa am spatiu intre imagine si titlu*/
         render () {
