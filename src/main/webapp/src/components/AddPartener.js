@@ -205,6 +205,7 @@ class AddPartener extends React.Component {
                                                      value={location}
                                                      onChange={this.partnerRegistered}
                                                      getLocation={this.setLocation.bind(this)}
+                                                     height="700px"
                                                      />
                                                  </div>
                                               </Form.Group>

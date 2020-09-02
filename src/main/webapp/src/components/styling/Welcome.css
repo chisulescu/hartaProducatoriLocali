@@ -9,8 +9,8 @@
 }
 
 .image1 {
-  height: 10rem;
-  width: 10rem;
+  /* height: 20rem;
+  width: 20rem; */
   margin-left: 5%;
   margin-top: 7rem;
   transition: .5s ease;
@@ -24,6 +24,7 @@
 .image2 {
   margin-right: 3rem;
   border-radius: 5px;
+  height: 20rem;
 }
 
 .right2 {
@@ -38,7 +39,6 @@
 }
 
 .btn {
-  float: right;
   margin-right: 1rem;
 }
 
@@ -54,8 +54,9 @@ h6 {
   margin-right: 30%
 }
 
-.no-padding {
+.map {
   padding: 0;
+  height: 70%;
 }
 
 
@@ -79,7 +80,12 @@ h2,
 h3,
 h4,
 h5 {
-	color: #333;
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: #9b6cfc;
 }
 
 h6 {
@@ -193,4 +199,18 @@ img {
 
 .pricing-header {
   padding-top: -3rem;
+}
+
+.custom:hover > ul {
+  transform: scale(1.1);
+  transition: .2s ease;
+}
+.custom:hover > h1 {
+  transform: scale(1.1);
+  transition: .2s ease;
+}
+
+.colorize:hover {
+  color: #9b6cfc;
+  transition: .2s ease;
 }

@@ -35,7 +35,7 @@ class PartenersMap extends React.Component {
             var center = [this.state.lat, this.state.lng];
 
             return (
-                <Map zoom={this.state.zoom} center={center} style={{ width: '100%', height: '700px'}}>
+                <Map zoom={this.state.zoom} center={center} style={{ width: '100%', height: this.props.height}}>
                    <TileLayer
                             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
