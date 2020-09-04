@@ -2,13 +2,51 @@ import React from 'react';
 import {Jumbotron, Image} from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 //import clase
+import MainMap from './MainMap';
+import {getAllPartners} from "../blockchain/BlockchainService";
+
+
 
 class Welcome extends React.Component {
 
+
+         constructor(props){
+            super(props);
+              this.state = {
+              location: '',
+              customers: []
+            };
+
+         }
+
+
+        componentDidMount() {
+             this.findAllCustomers();
+         }
+
+         findAllCustomers(){
+             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+
+             // axios.get("http://localhost:8080/customers")
+             // .then(response => response.data)
+             // .then((data) => {
+             //     this.setState({customers: data});
+             //     console.log(data)
+             // });
+         }
+
+
         render () {
+                const { location } = this.state;
+
                     return (
                         <div>
-                            <Image src="https://cdn.pixabay.com/photo/2015/09/02/12/34/fence-918535_1280.jpg" fluid width="100%" />
+                             <div className={"shadow"}>
+                                <MainMap
+                                name="location"
+                                value={location}
+                                />
+                            </div>
                             <ReactPlayer class="shadow"
                             url={[
                                 {src: './video/video2.mp4', type: 'video/ogg'},

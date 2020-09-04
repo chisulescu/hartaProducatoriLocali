@@ -14,9 +14,6 @@ class AddPartener extends React.Component {
             this.state.show = false;
             this.submitPartener = this.submitPartener.bind(this);
             this.partnerRegistered = this.partnerRegistered.bind(this);
-
-
-
         }
 
         initialState = {
