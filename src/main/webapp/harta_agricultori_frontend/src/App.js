@@ -10,6 +10,7 @@ import Welcome from './components/Welcome';
 import Footer from './components/Footer';
 import Partener from './components/Partener';
 import AddPartener from './components/AddPartener';
+import AdminPage from './components/AdminPage';
 
 function App() {
 
@@ -24,6 +25,7 @@ const marginTop = {marginTop: "20px"};
                         <Route path="/" exact component={Welcome}/>
                         <Route path="/parteneri" exact component={Partener}/>
                         <Route path="/addParteneri" exact component={AddPartener}/>
+                        <Route path="/adminPage" exact component={AdminPage}/>
                         </Switch>
                       </Col>
                  </Row>
