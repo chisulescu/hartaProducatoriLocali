@@ -10,6 +10,7 @@ class MainMap extends React.Component {
             super(props);
             this.state = this.initialState;
             this.state.draggable=true;
+
           };
 
         initialState = {
@@ -21,6 +22,11 @@ class MainMap extends React.Component {
        toggleDraggable = () => {
           this.setState({ draggable: !this.state.draggable })
        }
+
+       test(){
+        console.log("1111111111111");
+
+      }
 
         addressMarker = (event) => {
          this.state.lat = event.target.getLatLng().lat;
@@ -40,16 +46,18 @@ class MainMap extends React.Component {
                             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
-                    <Marker
-                        position={center}
-                        draggable={this.state.draggable}
-                        onDragend={this.addressMarker}>
-                        <Popup>
-                            <span onClick={this.toggleDraggable}>
-                              {this.state.draggable ? `Hello` : 'MARKER FIXED'}
-                            </span>
-                       </Popup>
-                    </Marker>
+                     {this.props.customers.map((customer) => (
+                      <Marker
+                         position={[customer.latitude, customer.longitude]}
+                         draggable={this.state.draggable}
+                         onDragend={this.addressMarker}>
+                         <Popup>
+                             <span onClick={this.toggleDraggable}>
+                               {this.state.draggable ? `Hello` : 'MARKER FIXED'}
+                             </span>
+                        </Popup>
+                     </Marker>
+                    ))}
                 </Map>
               );
 

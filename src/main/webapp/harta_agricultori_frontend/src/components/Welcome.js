@@ -9,7 +9,6 @@ import {getAllPartners} from "../blockchain/BlockchainService";
 
 class Welcome extends React.Component {
 
-
          constructor(props){
             super(props);
               this.state = {
@@ -19,10 +18,14 @@ class Welcome extends React.Component {
 
          }
 
-
         componentDidMount() {
              this.findAllCustomers();
+
          }
+
+         test(){
+             console.log("1111111111111");
+           }
 
          findAllCustomers(){
              getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
@@ -45,6 +48,7 @@ class Welcome extends React.Component {
                                 <MainMap
                                 name="location"
                                 value={location}
+                                customers={this.state.customers}
                                 />
                             </div>
                             <ReactPlayer class="shadow"
