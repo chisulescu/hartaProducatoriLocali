@@ -3,7 +3,12 @@ import {Card, Table, ButtonGroup, Button} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit, faTrash} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import {getAllPartners} from "../blockchain/BlockchainService";
+import {
+    checkUserByUsernameAndPassword,
+    getAllPartners,
+    getAllUsers,
+    registerUser
+} from "../blockchain/BlockchainService";
 
 class Partener extends React.Component {
 
@@ -20,6 +25,20 @@ class Partener extends React.Component {
 
         findAllCustomers(){
             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+            getAllUsers((result) => {
+                console.log(result)})
+            checkUserByUsernameAndPassword("s2", "p", (email) => {
+                console.log("we found this email " + email)
+            })
+            checkUserByUsernameAndPassword("s2", "ddp", (email) => {
+                console.log("we found this email " + email)
+            })
+            // let user = {
+            //     username: "s3",
+            //     password: "p",
+            //     email: "un email"
+            // }
+            // registerUser(user)
 
             // axios.get("http://localhost:8080/customers")
             // .then(response => response.data)
