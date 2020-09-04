@@ -27,18 +27,18 @@ class Partener extends React.Component {
             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
             getAllUsers((result) => {
                 console.log(result)})
-            checkUserByUsernameAndPassword("s2", "p", (email) => {
+            checkUserByUsernameAndPassword("s3", "p", (email) => {
                 console.log("we found this email " + email)
             })
             checkUserByUsernameAndPassword("s2", "ddp", (email) => {
                 console.log("we found this email " + email)
             })
-            // let user = {
-            //     username: "s3",
-            //     password: "p",
-            //     email: "un email"
-            // }
-            // registerUser(user)
+//             let user = {
+//                 username: "ioan",
+//                 password: "ioan",
+//                 email: "chisulescu@gmail.com"
+//             }
+//             registerUser(user)
 
             // axios.get("http://localhost:8080/customers")
             // .then(response => response.data)
