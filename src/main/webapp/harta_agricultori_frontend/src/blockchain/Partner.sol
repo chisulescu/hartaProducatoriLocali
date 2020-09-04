@@ -35,8 +35,21 @@ contract Partner {
             stringToBytes32(_email),
             stringToBytes32(_telefon),
             stringToBytes32(_website),
-            stringToBytes32(_facebook));
-        partnerList.push(msg.sender);
+            stringToBytes32(_facebook)
+        );
+
+        if(!listContains(msg.sender)) {
+           partnerList.push(msg.sender);
+        }
+    }
+
+    function listContains(address myAddress) private view returns (bool) {
+        for (uint k=0; k<partnerList.length; k++) {
+            if (partnerList[k] == myAddress) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function getPartnerList() public view returns (address[]) {

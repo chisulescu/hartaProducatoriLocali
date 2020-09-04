@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = '0x41c4aa5bbe036ea548bc35c6e855add94711cbd5';
+const address = '0x3d3355fdf8d852a4594ea0c0bc1d0c6fa8db337a';
 
 const abi =
     [
@@ -70,6 +70,60 @@ const abi =
             "constant": true,
             "inputs": [
                 {
+                    "name": "_bytes32",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "bytes32ToString",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_partnerAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getPartner",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
                     "name": "_partnerAddress",
                     "type": "address"
                 }
@@ -91,6 +145,70 @@ const abi =
                 {
                     "name": "",
                     "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getPartnerList",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_partnerAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getPartnerPlace",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "partnerList",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
                 }
             ],
             "payable": false,
@@ -168,39 +286,6 @@ const abi =
             "constant": true,
             "inputs": [
                 {
-                    "name": "_bytes32",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "bytes32ToString",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "pure",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [],
-            "name": "getPartnerList",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address[]"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
                     "name": "source",
                     "type": "string"
                 }
@@ -214,91 +299,6 @@ const abi =
             ],
             "payable": false,
             "stateMutability": "pure",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "_partnerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getPartnerPlace",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "_partnerAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getPartner",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                },
-                {
-                    "name": "",
-                    "type": "string"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "partnerList",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "view",
             "type": "function"
         }
     ];
