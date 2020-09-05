@@ -3,7 +3,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import './styling/Map.css';
 
-L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
+//L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
 class AdminMap extends React.Component {
         constructor(props) {

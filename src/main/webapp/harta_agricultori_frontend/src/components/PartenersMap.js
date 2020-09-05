@@ -1,9 +1,11 @@
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-    import L from 'leaflet';
+import L from 'leaflet';
 import './styling/Map.css';
+import leafGreen from './img/markerBlue.png';
+import leafShadow from './img/snadowBlue.png';
 
-L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
+//L.Icon.Default.imagePath = "http://joshuafrazier.info/images/firefox.svg";
 
 class PartenersMap extends React.Component {
         constructor(props) {
@@ -31,6 +33,17 @@ class PartenersMap extends React.Component {
          this.props.getLocation(event.target.getLatLng().lat, event.target.getLatLng().lng);
          }
 
+
+          grenIcon = L.icon({
+             iconUrl: leafGreen,
+             shadowUrl: leafShadow,
+             iconSize:     [21, 41], // size of the icon
+             shadowSize:   [40, 54], // size of the shadow
+             iconAnchor:   [2, 54], // point of the icon which will correspond to marker's location
+             shadowAnchor: [4, 62],  // the same for the shadow
+             popupAnchor:  [-3, -76]
+           });
+
         render () {
             var center = [this.state.lat, this.state.lng];
 
@@ -43,7 +56,8 @@ class PartenersMap extends React.Component {
                     <Marker
                         position={center}
                         draggable={this.state.draggable}
-                        onDragend={this.addressMarker}>
+                        onDragend={this.addressMarker}
+                        icon={this.grenIcon}>
                         <Popup>
                             <span onClick={this.toggleDraggable}>
                               {this.state.draggable ? `Hello` : 'MARKER FIXED'}

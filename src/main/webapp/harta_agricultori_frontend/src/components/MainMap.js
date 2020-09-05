@@ -2,8 +2,11 @@ import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import './styling/Map.css';
+import leafGreen from './img/farmer.png';
+import leafFactory from './img/factory.png';
+import leafShadow from './img/snadowBlue.png';
 
-L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
+//L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
 
 class MainMap extends React.Component {
         constructor(props) {
@@ -37,6 +40,26 @@ class MainMap extends React.Component {
          this.props.getLocation(event.target.getLatLng().lat, event.target.getLatLng().lng);
          }
 
+         farmIcon = L.icon({
+          iconUrl: leafGreen,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [16, 54], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+
+        factoryIcon = L.icon({
+          iconUrl: leafFactory,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+
         render () {
             var center = [this.state.lat, this.state.lng];
 
@@ -50,10 +73,11 @@ class MainMap extends React.Component {
                       <Marker
                          position={[customer.latitude, customer.longitude]}
                          draggable={this.state.draggable}
-                         onDragend={this.addressMarker}>
+                         onDragend={this.addressMarker}
+                         icon={this.factoryIcon}>
                          <Popup>
                              <span onClick={this.toggleDraggable}>
-                               {this.state.draggable ? `Hello` : 'MARKER FIXED'}
+                               {this.state.draggable ? `Hello111111111` : 'MARKER FIXED'}
                              </span>
                         </Popup>
                      </Marker>
