@@ -78,6 +78,7 @@ class MainMap extends React.Component {
                          <Popup>
                              <span onClick={this.toggleDraggable}>
                                {this.state.draggable ? `Hello111111111` : 'MARKER FIXED'}
+
                              </span>
                         </Popup>
                      </Marker>
