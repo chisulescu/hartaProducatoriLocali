@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Container, Row, Col} from 'react-bootstrap';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 
 // importuri clase
@@ -11,21 +11,50 @@ import Footer from './components/Footer';
 import Partener from './components/Partener';
 import AddPartener from './components/AddPartener';
 import AdminPage from './components/AdminPage';
+import PrivateRoute from './components/privateRoute';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
-function App() {
 
-const marginTop = {marginTop: "20px"};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authed: true, // temporary set to true
+      user: 'user'  // temporary
+    };
+    this.enableAuthed = this.enableAuthed.bind(this);
+    this.disableAuthed = this.disableAuthed.bind(this);
+  }
+
+  enableAuthed(user) {
+    this.setState({ authed: true, user: user });
+  }
+
+  disableAuthed() {
+    console.log("apasat");
+    this.setState({ authed: false });
+  }
+
+render () {
+  const marginTop = {marginTop: "20px"};
   return (
     <Router>
-         <NavigationBar/>
+         <NavigationBar isAuthed={this.state.authed} logout={this.disableAuthed} />
              <Container>
                  <Row>
                      <Col lg={12} style={marginTop}>
                         <Switch>
-                        <Route path="/" exact component={Welcome}/>
-                        <Route path="/parteneri" exact component={Partener}/>
-                        <Route path="/addParteneri" exact component={AddPartener}/>
-                        <Route path="/adminPage" exact component={AdminPage}/>
+                          <Route path="/" exact component={Welcome}/>
+                          <Route path="/addParteneri" exact component={AddPartener}/>
+                          <Route path="/login">
+                            <Login logIn={this.enableAuthed} />
+                          </Route>
+                          <Route path="/register">
+                            <Register />
+                          </Route>
+                          <Route path="/parteneri" exact component={Partener}/>
+                          <PrivateRoute authed={this.state.authed} path='/adminPage' component={AdminPage} />
                         </Switch>
                       </Col>
                  </Row>
@@ -33,6 +62,7 @@ const marginTop = {marginTop: "20px"};
          <Footer/>
     </Router>
   );
+}
 }
 
 export default App;
