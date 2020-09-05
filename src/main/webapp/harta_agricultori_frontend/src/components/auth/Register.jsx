@@ -7,6 +7,7 @@ import {
     getAllUsers,
     registerUser
 } from "../../blockchain/BlockchainService";
+const axios = require('axios').default;
 
 const axios = require('axios').default;
 

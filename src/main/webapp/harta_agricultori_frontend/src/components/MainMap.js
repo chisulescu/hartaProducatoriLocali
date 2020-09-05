@@ -2,7 +2,11 @@ import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 import './styling/Map.css';
-import leafGreen from './img/farmer.png';
+import wheat from './img/wheat.png';
+import meat from './img/meat.png';
+import cheese from './img/cheese.png';
+import fruit from './img/fruit.png';
+import vegetable from './img/vegetable.png';
 import leafFactory from './img/factory.png';
 import leafShadow from './img/snadowBlue.png';
 
@@ -40,8 +44,48 @@ class MainMap extends React.Component {
          this.props.getLocation(event.target.getLatLng().lat, event.target.getLatLng().lng);
          }
 
-         farmIcon = L.icon({
-          iconUrl: leafGreen,
+         wheatIcon = L.icon({
+          iconUrl: wheat,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [16, 54], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+
+        meatIcon = L.icon({
+          iconUrl: meat,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [16, 54], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+        
+        cheeseIcon = L.icon({
+          iconUrl: cheese,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [16, 54], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+
+        fruitIcon = L.icon({
+          iconUrl: fruit,
+          shadowUrl: leafShadow,
+          iconSize:     [41, 41], // size of the icon
+          shadowSize:   [40, 54], // size of the shadow
+          iconAnchor:   [16, 54], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor:  [-3, -76]
+        });
+
+        vegetableIcon = L.icon({
+          iconUrl: vegetable,
           shadowUrl: leafShadow,
           iconSize:     [41, 41], // size of the icon
           shadowSize:   [40, 54], // size of the shadow
@@ -59,23 +103,43 @@ class MainMap extends React.Component {
           shadowAnchor: [4, 62],  // the same for the shadow
           popupAnchor:  [-3, -76]
         });
-
         render () {
             var center = [this.state.lat, this.state.lng];
-
             return (
                 <Map zoom={this.state.zoom} center={center} style={{ width: '100%', height: '700px'}}>
                    <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
-                     {this.props.customers.map((customer) => (
-
+                     {this.props.customers.map((customer) => {
+                      console.log(customer.categorie)
+                      let icon = null;
+                      switch (customer.categorie) {
+                        case "carne":
+                          icon = this.meatIcon;
+                          break;
+                        case "cereale":
+                          icon = this.wheatIcon;
+                          break;
+                        case "legume":
+                          icon = this.vegetableIcon;
+                          break;
+                        case "fructe":
+                          icon = this.fruitIcon;
+                          break;
+                        case "branzeturi":
+                          icon = this.cheeseIcon;
+                          break;
+                        default:
+                          icon = this.factoryIcon;
+                          break;
+                      }
+                      return (
                       <Marker
                          position={[customer.latitude, customer.longitude]}
                          draggable={this.state.draggable}
                          onDragend={this.addressMarker}
-                         icon={this.factoryIcon}>
+                         icon={icon}>
                          <Popup>
                              <span onClick={this.toggleDraggable}>
                                {this.state.draggable ? `Hello111111111` : 'MARKER FIXED'}
@@ -83,7 +147,7 @@ class MainMap extends React.Component {
                              </span>
                         </Popup>
                      </Marker>
-                    ))}
+                    )})}
                 </Map>
               );
 

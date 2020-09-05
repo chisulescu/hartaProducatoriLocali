@@ -44,15 +44,14 @@ class Welcome extends React.Component {
 
         render () {
                 const { location } = this.state;
-
                     return (
                         <div style={{margin: "0 auto"}}>
                           <Container>
                              <div className={"shadow"}>
                                 <MainMap
-                                name="location"
-                                value={location}
-                                customers={this.state.customers}
+                                  name="location"
+                                  value={location}
+                                  customers={this.state.customers}
                                 />
                             </div>
                             <ReactPlayer class="shadow"
