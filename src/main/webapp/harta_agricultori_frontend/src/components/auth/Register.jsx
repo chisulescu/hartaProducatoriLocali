@@ -1,8 +1,8 @@
 import React from "react";
 import "./auth.css";
 import {Link} from 'react-router-dom';
-
 const axios = require('axios').default;
+
 
 
 class Register extends React.Component {
@@ -23,9 +23,15 @@ class Register extends React.Component {
   };
 
   handleSubmit = () => {
-    const { username, email, password1, password2 } = this.state;
-    console.log("Submitting");
-    axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
+
+
+            const { username, email, password1, password2 } = this.state;
+            console.log("Submitting");
+
+
+
+
+  /*  axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
       username,
       email,
       password1,
@@ -36,7 +42,7 @@ class Register extends React.Component {
     })
     .catch(function (error) {
       console.log(error);
-    });
+    }); */
   };
 
   render() {
@@ -45,13 +51,13 @@ class Register extends React.Component {
 
        <div class="wrapper fadeInDown">
                 <div id="formContent">
-                  <h2 class="active"> Sign In </h2>
+                  <h2 class="active"> Sign Up </h2>
 
                   <form>
                     <input
                     type="text"
                     id="username"
-                    class="fadeIn one"
+                    class="fadeIn first myInput"
                     name="username"
                     placeholder="Enter your username"
                     value={username}
@@ -60,7 +66,7 @@ class Register extends React.Component {
                     <input
                     type="text"
                     id="password1"
-                    class="fadeIn secound"
+                    class="fadeIn second myInput"
                     name="password1"
                     value={password1}
                     placeholder="Enter your email"
@@ -69,7 +75,7 @@ class Register extends React.Component {
                     <input
                     type="text"
                     id="password2"
-                    class="fadeIn third"
+                    class="fadeIn third myInput"
                     name="password2"
                     value={password2}
                     placeholder="Enter your password"
@@ -78,13 +84,13 @@ class Register extends React.Component {
                     <input
                     type="text"
                     id="email"
-                    class="fadeIn third"
+                    class="fadeIn third myInput"
                     name="email"
                     value={email}
                     placeholder="Repet password"
                     onChange={this.handleChange}/>
 
-                    <input type="submit" class="fadeIn fourth" value="Log In" onClick={this.handleSubmit} />
+                    <input type="submit" class="fadeIn fourth myInput" value="Log In" onClick={this.handleSubmit} />
                   </form>
 
                   <div id="formFooter">

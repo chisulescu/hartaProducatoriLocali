@@ -23,6 +23,7 @@ render () {
                             <Link to={"adminPage"} className="nav-link">Admin Page</Link>
                         }
                         {!this.props.isAuthed &&
+
                             <Link to={"login"} className="nav-link">Login</Link>
                         }
                         {this.props.isAuthed &&

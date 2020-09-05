@@ -70,7 +70,7 @@ class Login extends React.Component {
               <input
               type="text"
               id="username"
-              class="fadeIn one"
+              className="fadeIn first myInput"
               name="username"
               placeholder="Enter your username"
               value={username}
@@ -79,13 +79,13 @@ class Login extends React.Component {
               <input
               type="text"
               id="password"
-              class="fadeIn secound"
+              className="fadeIn second myInput"
               name="password"
               value={password}
               placeholder="Enter your password"
               onChange={this.handleChange}/>
 
-              <input type="submit" class="fadeIn fourth" value="Log In" onClick={this.handleSubmit} />
+              <input type="submit" class="fadeIn fourth myInput" value="Log In" onClick={this.handleSubmit} />
             </form>
 
             <div id="formFooter">
