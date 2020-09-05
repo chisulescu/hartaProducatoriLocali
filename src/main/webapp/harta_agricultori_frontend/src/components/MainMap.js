@@ -106,7 +106,7 @@ class MainMap extends React.Component {
         render () {
             var center = [this.state.lat, this.state.lng];
             return (
-                <Map zoom={this.state.zoom} center={center} style={{ width: '100%', height: '700px'}}>
+                <Map zoom={this.state.zoom} center={center} style={{ width: '700px', height: '500px'}}>
                    <TileLayer
                       attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                       url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
