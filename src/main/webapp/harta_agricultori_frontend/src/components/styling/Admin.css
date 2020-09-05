@@ -3,7 +3,7 @@
     z-index: 3;
 }
 #sidebar .list-group {
-    min-width: 400px;
+    min-width: 15rem;
     background-color: #191919;
     min-height: 100vh;
 }
@@ -121,4 +121,26 @@
   height: 100%;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
+}
+
+.custom1 {
+  width: 3rem;
+}
+
+p {
+  color: #fff
+}
+
+.customRow {
+  margin-left: 0;
+  display: inline-flex;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+
+
+#text {
+  margin-right: 15px;
+  margin-top: -3px;
 }

@@ -12,6 +12,8 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "bootstrap-switch-button-react": "^1.2.0",
+    "bootstrap-toggle": "^2.2.2",
     "dotenv": "^8.2.0",
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
@@ -25,6 +27,7 @@
     "react-player": "^2.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-switch": "^5.0.1",
     "web3": "^1.2.7"
   },
   "scripts": {
