@@ -14,22 +14,16 @@ class Welcome extends React.Component {
               location: '',
               customers: []
             };
-
          }
-
         componentDidMount() {
              this.findAllCustomers();
-
          }
-
          test(){
              console.log("1111111111111");
            }
-
          findAllCustomers(){
              getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
              console.log("pppppppppppppppppppp");
-
               this.state.customers.map((customer) => (
               console.log(customer)
              ))
@@ -40,8 +34,6 @@ class Welcome extends React.Component {
              //     console.log(data)
              // });
          }
-
-
         render () {
                 const { location } = this.state;
                     return (

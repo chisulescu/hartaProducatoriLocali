@@ -13,14 +13,21 @@ class AdminPage extends Component {
             checked2: false,
             customers: []
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange1 = this.handleChange1.bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
         }
 
-    handleChange(checkName) {
+        handleChange1() {
         this.setState(prevState => ({
-            [checkName]: !prevState.checked
+           checked1: !prevState.checked1
           }));
-    }
+        }
+
+        handleChange2() {
+            this.setState(prevState => ({
+                checked2: !prevState.checked2
+              }));
+        }
 
     render() {
 
@@ -34,8 +41,8 @@ class AdminPage extends Component {
                     <p id="text">Afiseaza depozite</p>
                     <Switch
                         className="switch-position-correct"
-                        onChange={() => this.handleChange("check1")}
-                        checked={this.state.checked}
+                        onChange={this.handleChange1}
+                        checked={this.state.checked1}
                         height={20}
                         width={40}
                         uncheckedIcon={false}
@@ -45,8 +52,8 @@ class AdminPage extends Component {
                 <div className="customRow">
                     <p id="text">Afiseaza producatori</p>
                     <Switch
-                        onChange={this.handleChange}
-                        checked={this.state.checked}
+                        onChange={this.handleChange2}
+                        checked={this.state.checked2}
                         height={20}
                         width={40}
                         uncheckedIcon={false}

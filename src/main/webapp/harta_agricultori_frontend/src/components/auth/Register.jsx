@@ -9,7 +9,6 @@ import {
 } from "../../blockchain/BlockchainService";
 const axios = require('axios').default;
 
-const axios = require('axios').default;
 
 class Register extends React.Component {
   constructor(props) {
@@ -29,43 +28,14 @@ class Register extends React.Component {
   };
 
   handleSubmit = () => {
-
             const { username, email, password1, password2 } = this.state;
 
-
-            console.log("Submitting");
-
-
-            getAllUsers((result) => {
-                            console.log(result)})
-                        checkUserByUsernameAndPassword("s3", "p", (email) => {
-                            console.log("we found this email " + email)
-                        })
-                        checkUserByUsernameAndPassword("s2", "ddp", (email) => {
-                            console.log("we found this email " + email)
-                        })
-                         let user = {
-                             username: "ioan",
-                             password: "ioan",
-                             email: "chisulescu@gmail.com"
-                         }
-                         registerUser(user)
-
-             alert("I am setTimeout");
-
-
-  /*  axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
-      username,
-      email,
-      password1,
-      password2
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    }); */
+             let user = {
+                 username: "ioan",
+                 password: "ioan",
+                 email: "chisulescu@gmail.com"
+             }
+             registerUser(user)
   };
 
   render() {
@@ -113,7 +83,7 @@ class Register extends React.Component {
                     placeholder="Repet password"
                     onChange={this.handleChange}/>
 
-                    <input type="submit" class="fadeIn fourth myInput" value="Register" onClick={this.handleSubmit} />
+                    <input class="fadeIn fourth myInput" value="Register" onClick={this.handleSubmit} />
                   </form>
 
                   <div id="formFooter">

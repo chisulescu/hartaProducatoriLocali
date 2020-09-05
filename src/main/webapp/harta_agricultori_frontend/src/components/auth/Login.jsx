@@ -3,8 +3,14 @@ import { Redirect } from "react-router-dom";
 import "./auth.css";
 import Register from "./Register";
 import {Link} from 'react-router-dom';
+import {
+    checkUserByUsernameAndPassword,
+    getAllPartners,
+    getAllUsers,
+    registerUser
+} from "../../blockchain/BlockchainService";
 
-// const axios = require('axios').default;
+const axios = require('axios').default;
 
 
 class Login extends React.Component {
@@ -25,25 +31,13 @@ class Login extends React.Component {
   };
 
   handleSubmit = () => {
-    // const { username, password } = this.state;
-    // console.log("Submitting");
-    // const self = this;
 
-    // axios.post('http://127.0.0.1:8000/rest-auth/login/', {
-    //   username,
-    //   password
-    // })
-    // .then((response) => {
-    //   console.log(response);
-    //   if (response.status === 200) {
-    //     this.props.logIn();
-    //     self.setState({ navigate: true })
-    //   }
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
-    console.log("111111111");
+        const { username, password} = this.state;
+
+        checkUserByUsernameAndPassword(username, password, (email) => {
+                        console.log("we found this email " + email)
+                    })
+
     this.props.logIn("user");
     this.setState({ navigate: true })
   };
@@ -85,7 +79,7 @@ class Login extends React.Component {
               placeholder="Enter your password"
               onChange={this.handleChange}/>
 
-              <input type="submit" class="fadeIn fourth myInput buton" value="Log In" onClick={this.handleSubmit} />
+              <input class="fadeIn fourth myInput buton" value="Log In" onClick={this.handleSubmit} />
             </form>
 
             <div id="formFooter">
