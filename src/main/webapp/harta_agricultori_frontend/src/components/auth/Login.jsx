@@ -43,6 +43,7 @@ class Login extends React.Component {
     // .catch((error) => {
     //   console.log(error);
     // });
+    console.log("111111111");
     this.props.logIn("user");
     this.setState({ navigate: true })
   };
@@ -61,28 +62,38 @@ class Login extends React.Component {
     }
 
     return (
-        <div>
-          <h2 id="text">Login</h2>
-          <form>
-            <label htmlFor="email">Username</label>
-            <input
-                name="username"
-                type="text"
-                placeholder="Enter your username"
-                value={username}
-                onChange={this.handleChange}
-            />
-            <label htmlFor="email">Password</label>
-            <input
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={this.handleChange}
-            />
-            <button className="authButton" type="button" onClick={this.handleSubmit}>Login</button>
-            <Link to={"register"} className="nav-link">Create an account</Link>
-          </form>
+        <div class="wrapper fadeInDown">
+          <div id="formContent">
+            <h2 class="active"> Sign In </h2>
+
+            <form>
+              <input
+              type="text"
+              id="username"
+              class="fadeIn one"
+              name="username"
+              placeholder="Enter your username"
+              value={username}
+              onChange={this.handleChange}/>
+
+              <input
+              type="text"
+              id="password"
+              class="fadeIn secound"
+              name="password"
+              value={password}
+              placeholder="Enter your password"
+              onChange={this.handleChange}/>
+
+              <input type="submit" class="fadeIn fourth" value="Log In" onClick={this.handleSubmit} />
+            </form>
+
+            <div id="formFooter">
+             <a class="underlineHover"> <Link to={"register"} className="nav-link">Create an account</Link> </a>
+              <a class="underlineHover"> <Link to={"register"} className="nav-link">Forgot Password?</Link> </a>
+            </div>
+
+          </div>
         </div>
     );
   }

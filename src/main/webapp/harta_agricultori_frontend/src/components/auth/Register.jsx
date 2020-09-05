@@ -42,43 +42,57 @@ class Register extends React.Component {
   render() {
     const { username, email, password1, password2 } = this.state;
     return (
-      <div>
-        <h2 id="text">Register</h2>
-        <form>
-          <label htmlFor="email">Username</label>
-          <input
-            name="username"
-            type="text"
-            placeholder="Enter your username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="text"
-            placeholder="Enter your email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="email">Password</label>
-          <input
-            name="password1"
-            type="password"
-            value={password1}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="email">Re-enter your password</label>
-          <input
-            name="password2"
-            type="password"
-            value={password2}
-            onChange={this.handleChange}
-          />
-          <button className="authButton" type="button" onClick={this.handleSubmit}>Register</button>
-          <Link to={"login"} className="nav-link">Sing in</Link>
-        </form>
-      </div>
+
+       <div class="wrapper fadeInDown">
+                <div id="formContent">
+                  <h2 class="active"> Sign In </h2>
+
+                  <form>
+                    <input
+                    type="text"
+                    id="username"
+                    class="fadeIn one"
+                    name="username"
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={this.handleChange}/>
+
+                    <input
+                    type="text"
+                    id="password1"
+                    class="fadeIn secound"
+                    name="password1"
+                    value={password1}
+                    placeholder="Enter your email"
+                    onChange={this.handleChange}/>
+
+                    <input
+                    type="text"
+                    id="password2"
+                    class="fadeIn third"
+                    name="password2"
+                    value={password2}
+                    placeholder="Enter your password"
+                    onChange={this.handleChange}/>
+
+                    <input
+                    type="text"
+                    id="email"
+                    class="fadeIn third"
+                    name="email"
+                    value={email}
+                    placeholder="Repet password"
+                    onChange={this.handleChange}/>
+
+                    <input type="submit" class="fadeIn fourth" value="Log In" onClick={this.handleSubmit} />
+                  </form>
+
+                  <div id="formFooter">
+                   <a class="underlineHover"> <Link to={"login"} className="nav-link">Login</Link> </a>
+                  </div>
+
+                </div>
+              </div>
     );
   }
 }
