@@ -130,14 +130,14 @@ export function getAllUsers(callback) {
 
 export async function registerUser(user) {
     const accounts = await web3.eth.getAccounts();
-
+    console.log('USER: ', user);
     await userContract.methods.registerUser(
         user.username.toString(),
         user.password.toString(),
         user.email.toString()
     ).send({from: accounts[0], gas: 3000000})
         .then((result) => {
-            console.log(result)})
+            console.log('result:', result)})
         .catch((error) => console.log(error))
 }
 

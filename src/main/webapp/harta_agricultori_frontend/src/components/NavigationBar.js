@@ -8,7 +8,6 @@ render () {
     const showNavBar = this.props.location.pathname!=='/login' 
     && this.props.location.pathname!=='/register'
     && this.props.location.pathname!=='/adminPage';
-    console.log(showNavBar);
             return (
             <div>
                 {showNavBar &&

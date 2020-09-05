@@ -85,7 +85,7 @@ class Login extends React.Component {
               placeholder="Enter your password"
               onChange={this.handleChange}/>
 
-              <input type="submit" class="fadeIn fourth myInput" value="Log In" onClick={this.handleSubmit} />
+              <input type="submit" class="fadeIn fourth myInput buton" value="Log In" onClick={this.handleSubmit} />
             </form>
 
             <div id="formFooter">

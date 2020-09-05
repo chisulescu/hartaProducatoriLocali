@@ -42,7 +42,7 @@ render () {
     <Router>
          <NavigationBar isAuthed={this.state.authed} logout={this.disableAuthed} />
             <Row>
-                <Col >
+                <Col className="col">
                   <Switch>
                     <Route path="/" exact component={Welcome}/>
                     <Route path="/addParteneri" exact component={AddPartener}/>

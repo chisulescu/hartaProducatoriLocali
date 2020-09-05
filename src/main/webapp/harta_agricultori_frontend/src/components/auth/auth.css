@@ -83,9 +83,9 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 .myInput {
-  background-color: #56baed;
+  background-color: #39ace7;
   border: none;
-  color: white;
+  color: #191919;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
@@ -104,11 +104,11 @@ h2.active {
   transition: all 0.3s ease-in-out;
 }
 
-myInput[type=button]:hover, myInput[type=submit]:hover, myInput[type=reset]:hover  {
+.myInput[type=button]:hover, .myInput[type=submit]:hover, myInput[type=reset]:hover  {
   background-color: #39ace7;
 }
 
-myInput[type=button]:active, myInput[type=submit]:active, myInput[type=reset]:active  {
+.myInput[type=button]:active, .myInput[type=submit]:active, myInput[type=reset]:active  {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
@@ -116,7 +116,7 @@ myInput[type=button]:active, myInput[type=submit]:active, myInput[type=reset]:ac
   transform: scale(0.95);
 }
 
-myInput[type=text] {
+.myInput[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -137,12 +137,12 @@ myInput[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-myInput[type=text]:focus {
+.myInput[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-myInput[type=text]:placeholder {
+.myInput[type=text]:placeholder {
   color: #cccccc;
 }
 
