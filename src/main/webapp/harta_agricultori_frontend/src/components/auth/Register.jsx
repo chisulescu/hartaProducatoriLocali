@@ -1,7 +1,6 @@
 import React from "react";
 import "./auth.css";
 import {Link} from 'react-router-dom';
-const axios = require('axios').default;
 import {
     checkUserByUsernameAndPassword,
     getAllPartners,
@@ -9,6 +8,7 @@ import {
     registerUser
 } from "../../blockchain/BlockchainService";
 
+const axios = require('axios').default;
 
 class Register extends React.Component {
   constructor(props) {
