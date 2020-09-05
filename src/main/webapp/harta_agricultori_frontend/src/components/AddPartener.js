@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Form, Button, Col} from 'react-bootstrap';
+import {Card, Form, Button, Col, Container} from 'react-bootstrap';
 import ToastComponent from './ToastComponent';
 import PartenersMap from './PartenersMap';
 
@@ -73,6 +73,7 @@ class AddPartener extends React.Component {
 
              return (
                     <div>
+                        <Container>
                         <div style={{"display":this.state.show ? "block" : "none"}}>
                             <ToastComponent children = {{show:this.state.show, message:"Partner Saved Successfully."}}/>
                         </div>
@@ -231,7 +232,7 @@ class AddPartener extends React.Component {
                                         </Card.Footer>
                                    </Form>
                                </Card>
-
+                               </Container>
                           </div>
 
                      );

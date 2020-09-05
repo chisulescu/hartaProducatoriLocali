@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Table, ButtonGroup, Button} from 'react-bootstrap';
+import {Card, Table, ButtonGroup, Button, Container} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit, faTrash} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -50,6 +50,7 @@ class Partener extends React.Component {
 /* Jos unde se insereaza iamgiena am pus acele doua paranteze dinainte de customer.title ca sa am spatiu intre imagine si titlu*/
         render () {
                return (
+                 <Container>
                <Card className={"border border-white bg-white text-gree shadow p-3 mb-8 bg-white rounded"}>
                     <Card.Header className={"border border-white bg-white"}> Parteneri </Card.Header>
                     <Card.Body>
@@ -91,6 +92,7 @@ class Partener extends React.Component {
                         </Table>
                     </Card.Body>
                </Card>
+               </Container>
                );
         }
 

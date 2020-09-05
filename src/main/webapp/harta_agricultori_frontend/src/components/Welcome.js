@@ -1,10 +1,9 @@
 import React from 'react';
-import {Jumbotron, Image} from 'react-bootstrap';
+import {Jumbotron, Container} from 'react-bootstrap';
 import ReactPlayer from 'react-player';
-//import clase
 import MainMap from './MainMap';
 import {getAllPartners} from "../blockchain/BlockchainService";
-
+import './styling/Welcome.css'
 
 
 class Welcome extends React.Component {
@@ -43,7 +42,8 @@ class Welcome extends React.Component {
                 const { location } = this.state;
 
                     return (
-                        <div>
+                        <div style={{margin: "0 auto"}}>
+                          <Container>
                              <div className={"shadow"}>
                                 <MainMap
                                 name="location"
@@ -75,7 +75,7 @@ class Welcome extends React.Component {
                              <footer className="blockquote-footer">
 
                              </footer>
-
+                          </Container>
                         </div>
                     );
                  }

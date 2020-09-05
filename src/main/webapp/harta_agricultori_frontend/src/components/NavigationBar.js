@@ -1,13 +1,18 @@
 import React from 'react';
 import {Navbar, Nav, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 class NavigationBar extends React.Component {
 
 render () {
+    const showNavBar = this.props.location.pathname!=='/login' 
+    && this.props.location.pathname!=='/register'
+    && this.props.location.pathname!=='/adminPage';
+    console.log(showNavBar);
             return (
             <div>
-                  <Navbar>
+                {showNavBar &&
+                <Navbar>
                   <Link to={""} className="navbar-brand">
                   <img src="./img/farm.png" width="25" height="25" alt="brand"/>
                   </Link>
@@ -24,11 +29,12 @@ render () {
                             <Button onClick={this.props.logout} className="nav-link">Logout</Button>
                         }
                     </Nav>
-                  </Navbar>
-            </div>
-            );
+                </Navbar>
+            }
+        </div>
+    );
 }
 
 }
 
-export default NavigationBar;
+export default withRouter(NavigationBar)

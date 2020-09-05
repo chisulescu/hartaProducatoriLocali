@@ -37,28 +37,26 @@ class App extends React.Component {
   }
 
 render () {
-  const marginTop = {marginTop: "20px"};
+  // const marginTop = {marginTop: "20px"};
   return (
     <Router>
          <NavigationBar isAuthed={this.state.authed} logout={this.disableAuthed} />
-             <Container>
-                 <Row>
-                     <Col lg={12} style={marginTop}>
-                        <Switch>
-                          <Route path="/" exact component={Welcome}/>
-                          <Route path="/addParteneri" exact component={AddPartener}/>
-                          <Route path="/login">
-                            <Login logIn={this.enableAuthed} />
-                          </Route>
-                          <Route path="/register">
-                            <Register />
-                          </Route>
-                          <Route path="/parteneri" exact component={Partener}/>
-                          <PrivateRoute authed={this.state.authed} path='/adminPage' component={AdminPage} />
-                        </Switch>
-                      </Col>
-                 </Row>
-             </Container>
+            <Row>
+                <Col >
+                  <Switch>
+                    <Route path="/" exact component={Welcome}/>
+                    <Route path="/addParteneri" exact component={AddPartener}/>
+                    <Route path="/login">
+                      <Login logIn={this.enableAuthed} />
+                    </Route>
+                    <Route path="/register">
+                      <Register />
+                    </Route>
+                    <Route path="/parteneri" exact component={Partener}/>
+                    <PrivateRoute authed={this.state.authed} path='/adminPage' component={AdminPage} />
+                  </Switch>
+                </Col>
+            </Row>
          <Footer/>
     </Router>
   );
