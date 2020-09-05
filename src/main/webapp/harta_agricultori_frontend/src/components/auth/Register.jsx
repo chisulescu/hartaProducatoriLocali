@@ -2,7 +2,12 @@ import React from "react";
 import "./auth.css";
 import {Link} from 'react-router-dom';
 const axios = require('axios').default;
-
+import {
+    checkUserByUsernameAndPassword,
+    getAllPartners,
+    getAllUsers,
+    registerUser
+} from "../../blockchain/BlockchainService";
 
 
 class Register extends React.Component {
@@ -28,7 +33,12 @@ class Register extends React.Component {
             const { username, email, password1, password2 } = this.state;
             console.log("Submitting");
 
-
+            let user = {
+             username: username,
+             password: password1,
+             email: email
+             }
+             registerUser(user)
 
 
   /*  axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
