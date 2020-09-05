@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import "./auth.css";
 import Register from "./Register";
+import {Link} from 'react-router-dom';
 
 // const axios = require('axios').default;
 
@@ -56,7 +57,7 @@ class Login extends React.Component {
     const { navigate, username, password } = this.state;
 
     if (navigate) {
-      return <Redirect to="/adminPage" push={true} />
+      return <Redirect to="/home" push={true} />
     }
 
     return (
@@ -80,6 +81,7 @@ class Login extends React.Component {
                 onChange={this.handleChange}
             />
             <button className="authButton" type="button" onClick={this.handleSubmit}>Login</button>
+            <Link to={"register"} className="nav-link">Create an account</Link>
           </form>
         </div>
     );

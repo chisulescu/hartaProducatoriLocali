@@ -20,9 +20,6 @@ render () {
                         {!this.props.isAuthed &&
                             <Link to={"login"} className="nav-link">Login</Link>
                         }
-                        {!this.props.isAuthed &&
-                            <Link to={"register"} className="nav-link">Register</Link>
-                        }
                         {this.props.isAuthed &&
                             <Button onClick={this.props.logout} className="nav-link">Logout</Button>
                         }

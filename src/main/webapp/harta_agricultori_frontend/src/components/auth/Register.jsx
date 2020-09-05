@@ -1,5 +1,6 @@
 import React from "react";
 import "./auth.css";
+import {Link} from 'react-router-dom';
 
 const axios = require('axios').default;
 
@@ -75,6 +76,7 @@ class Register extends React.Component {
             onChange={this.handleChange}
           />
           <button className="authButton" type="button" onClick={this.handleSubmit}>Register</button>
+          <Link to={"login"} className="nav-link">Sing in</Link>
         </form>
       </div>
     );
