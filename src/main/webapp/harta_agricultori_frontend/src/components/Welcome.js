@@ -28,7 +28,11 @@ class Welcome extends React.Component {
 
          findAllCustomers(){
              getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+             console.log("pppppppppppppppppppp");
 
+              this.state.customers.map((customer) => (
+              console.log(customer)
+             ))
              // axios.get("http://localhost:8080/customers")
              // .then(response => response.data)
              // .then((data) => {

@@ -33,12 +33,12 @@ class Partener extends React.Component {
             checkUserByUsernameAndPassword("s2", "ddp", (email) => {
                 console.log("we found this email " + email)
             })
-//             let user = {
-//                 username: "ioan",
-//                 password: "ioan",
-//                 email: "chisulescu@gmail.com"
-//             }
-//             registerUser(user)
+             let user = {
+                 username: "ioan",
+                 password: "ioan",
+                 email: "chisulescu@gmail.com"
+             }
+             registerUser(user)
 
             // axios.get("http://localhost:8080/customers")
             // .then(response => response.data)

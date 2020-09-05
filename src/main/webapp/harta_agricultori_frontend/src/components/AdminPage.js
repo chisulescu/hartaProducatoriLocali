@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './styling/Admin.css';
+import './styling/Switch.css';
 import AdminMap from './AdminMap';
 import Switch from "react-switch";
 
@@ -8,15 +9,16 @@ class AdminPage extends Component {
         super(props);
             this.state = {
             location: '',
-            checked: false,
+            checked1: false,
+            checked2: false,
             customers: []
         };
         this.handleChange = this.handleChange.bind(this);
         }
 
-    handleChange() {
+    handleChange(checkName) {
         this.setState(prevState => ({
-            checked: !prevState.checked
+            [checkName]: !prevState.checked
           }));
     }
 
@@ -29,7 +31,19 @@ class AdminPage extends Component {
             <div class="custom1">
                 <p>Dashboard</p>
                 <div className="customRow">
-                    <p id="text">User</p>
+                    <p id="text">Afiseaza depozite</p>
+                    <Switch
+                        className="switch-position-correct"
+                        onChange={() => this.handleChange("check1")}
+                        checked={this.state.checked}
+                        height={20}
+                        width={40}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                    />
+                </div>
+                <div className="customRow">
+                    <p id="text">Afiseaza producatori</p>
                     <Switch
                         onChange={this.handleChange}
                         checked={this.state.checked}

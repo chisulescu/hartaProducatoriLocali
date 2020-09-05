@@ -70,6 +70,7 @@ class MainMap extends React.Component {
                       url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
                      {this.props.customers.map((customer) => (
+
                       <Marker
                          position={[customer.latitude, customer.longitude]}
                          draggable={this.state.draggable}
