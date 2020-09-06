@@ -15,7 +15,14 @@ class AdminPage extends Component {
             checked2: false,
             customers: [
              { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.770920', longitude: '23.589920'},
-             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442'}
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.748871', longitude: '21.208679'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.6523093', longitude: '25.6102746'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.6565584', longitude: '23.5719843'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.4361414', longitude: '26.1027202'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.3190159', longitude: '23.7965614'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.0687385', longitude: '23.5704398'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.3469264', longitude: '25.3557638'}
             ]
         };
             this.handleChange1 = this.handleChange1.bind(this);

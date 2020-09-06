@@ -21,9 +21,9 @@ class AdminMap extends React.Component {
           };
 
         initialState = {
-            lat: 46.770920,
-            lng: 23.589920,
-            zoom: 10
+            lat: 45.6523093 ,
+            lng: 25.6102746,
+            zoom: 7
           };
 
        toggleDraggable = () => {
