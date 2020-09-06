@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authed: true, // temporary set to true
+      authed: false, 
       user: 'user'  // temporary
     };
     this.enableAuthed = this.enableAuthed.bind(this);
