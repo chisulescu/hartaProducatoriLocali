@@ -3,6 +3,8 @@ import './styling/Admin.css';
 import './styling/Switch.css';
 import AdminMap from './AdminMap';
 import Switch from "react-switch";
+import {getAllPartners} from "../blockchain/BlockchainService";
+
 
 class AdminPage extends Component {
     constructor(props){
@@ -28,6 +30,24 @@ class AdminPage extends Component {
                 checked2: !prevState.checked2
               }));
         }
+
+         componentDidMount() {
+             this.findAllCustomers();
+         }
+
+        findAllCustomers(){
+             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+             console.log("pppppppppppppppppppp");
+              this.state.customers.map((customer) => (
+              console.log(customer)
+             ))
+             // axios.get("http://localhost:8080/customers")
+             // .then(response => response.data)
+             // .then((data) => {
+             //     this.setState({customers: data});
+             //     console.log(data)
+             // });
+         }
 
     render() {
 
