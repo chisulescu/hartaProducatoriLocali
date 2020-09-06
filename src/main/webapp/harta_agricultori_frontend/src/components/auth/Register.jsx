@@ -31,9 +31,9 @@ class Register extends React.Component {
             const { username, email, password1, password2 } = this.state;
 
              let user = {
-                 username: "ioan",
-                 password: "ioan",
-                 email: "chisulescu@gmail.com"
+                 username: username,
+                 password: email,
+                 email: password1
              }
              registerUser(user)
   };

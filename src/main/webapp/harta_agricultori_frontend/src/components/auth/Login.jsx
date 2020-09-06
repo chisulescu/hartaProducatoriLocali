@@ -35,7 +35,10 @@ class Login extends React.Component {
         const { username, password} = this.state;
 
         checkUserByUsernameAndPassword(username, password, (email) => {
-                    if (email!=''){
+                     console.log("0000000000000000000000000000");
+                     console.log(email);
+                    if (email!='' && email.includes("gov")){
+                    console.log("kkkkkkkkkkkkkkk");
                      this.props.logIn("user");
                         this.setState({ navigate: true })
                     }

@@ -160,10 +160,25 @@ class AdminMap extends React.Component {
                          onDragend={this.addressMarker}
                          icon={icon}>
                          <Popup>
+                            <div class="display-popup">
                              <span onClick={this.toggleDraggable}>
-                               {this.state.draggable ? `Hello111111111` : 'MARKER FIXED'}
+                               {this.state.draggable ?
+                              "Email: " + customer.email : 'MARKER FIXED'}
 
                              </span>
+                             <span onClick={this.toggleDraggable}>
+                                {this.state.draggable ?
+                                "Telefon: " + customer.telefon : 'MARKER FIXED'}
+                             </span>
+                             <span onClick={this.toggleDraggable}>
+                                 {this.state.draggable ?
+                                 "Firma: " + customer.nume_firma : 'MARKER FIXED'}
+                              </span>
+                             <span onClick={this.toggleDraggable}>
+                                 {this.state.draggable ?
+                                 "Status-Descriere: " + customer.descriere : 'MARKER FIXED'}
+                             </span>
+                             </div>
                         </Popup>
                      </Marker>
                     )})}

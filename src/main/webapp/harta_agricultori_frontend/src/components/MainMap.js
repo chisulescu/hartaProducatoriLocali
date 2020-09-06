@@ -157,10 +157,25 @@ class MainMap extends React.Component {
                          onDragend={this.addressMarker}
                          icon={icon}>
                          <Popup>
+                            <div class="display-popup">
                              <span onClick={this.toggleDraggable}>
-                               {this.state.draggable ? `Hello111111111` : 'MARKER FIXED'}
+                               {this.state.draggable ?
+                              "Email: " + customer.email : 'MARKER FIXED'}
 
                              </span>
+                             <span onClick={this.toggleDraggable}>
+                                {this.state.draggable ?
+                                "Telefon: " + customer.telefon : 'MARKER FIXED'}
+                             </span>
+                             <span onClick={this.toggleDraggable}>
+                                 {this.state.draggable ?
+                                 "Website: " + customer.website : 'MARKER FIXED'}
+                             </span>
+                             <span onClick={this.toggleDraggable}>
+                                  {this.state.draggable ?
+                                  "Facebook: " + customer.website : 'MARKER FIXED'}
+                              </span>
+                             </div>
                         </Popup>
                      </Marker>
                     )})}
