@@ -12,8 +12,33 @@ class Welcome extends React.Component {
             super(props);
               this.state = {
               location: '',
-              customers: []
+              customers: [
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.770920', longitude: '23.589920'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.748871', longitude: '21.208679'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.6523093', longitude: '25.6102746'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.6565584', longitude: '23.5719843'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.4361414', longitude: '26.1027202'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.3190159', longitude: '23.7965614'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.0687385', longitude: '23.5704398'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.3469264', longitude: '25.3557638'},
+               { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.2716092', longitude: '27.9742932'}
+              ]
             };
+         }
+
+         componentDidUpdate() {
+         console.log("Switch 1");
+         console.log(this.state.checked1);
+         console.log("Switch 2");
+         console.log(this.state.checked2);
+
+         if (this.state.checked1 && this.state.checked2){
+             this.findAllCustomers();
+         } else if  (this.state.checked1 && !this.state.checked2) {
+             this.state.customers = []
+         }
+
          }
         componentDidMount() {
              this.findAllCustomers();
@@ -21,18 +46,13 @@ class Welcome extends React.Component {
          test(){
              console.log("1111111111111");
            }
-         findAllCustomers(){
-             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
-             console.log("pppppppppppppppppppp");
-              this.state.customers.map((customer) => (
-              console.log(customer)
-             ))
-             // axios.get("http://localhost:8080/customers")
-             // .then(response => response.data)
-             // .then((data) => {
-             //     this.setState({customers: data});
-             //     console.log(data)
-             // });
+        findAllCustomers(){
+             getAllPartners((result) => {
+                this.setState(prevState => ({
+                    customers: [...prevState.customers, ...result]
+                  }))
+                console.log(result)
+            })
          }
         render () {
                 const { location } = this.state;

@@ -8,6 +8,7 @@ import cheese from './img/cheese.png';
 import fruit from './img/fruit.png';
 import vegetable from './img/vegetable.png';
 import leafFactory from './img/factory.png';
+import question from './img/question-mark.png';
 import leafShadow from './img/snadowBlue.png';
 
 //L.Icon.Default.imagePath = "https://unpkg.com/leaflet@1.5.0/dist/images/";
@@ -103,6 +104,18 @@ class MainMap extends React.Component {
           shadowAnchor: [4, 62],  // the same for the shadow
           popupAnchor:  [-3, -76]
         });
+
+        questionIcon = L.icon({
+        iconUrl: question,
+        shadowUrl: leafShadow,
+        iconSize:     [41, 41], // size of the icon
+        shadowSize:   [40, 54], // size of the shadow
+        iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76]
+      });
+
+
         render () {
             var center = [this.state.lat, this.state.lng];
             return (
@@ -130,9 +143,12 @@ class MainMap extends React.Component {
                         case "branzeturi":
                           icon = this.cheeseIcon;
                           break;
-                        default:
-                          icon = this.factoryIcon;
-                          break;
+                       case "depozit":
+                         icon = this.factoryIcon;
+                         break;
+                       default:
+                         icon = this.questionIcon;
+                         break;
                       }
                       return (
                       <Marker
