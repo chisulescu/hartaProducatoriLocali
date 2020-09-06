@@ -22,7 +22,8 @@ class AdminPage extends Component {
              { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.4361414', longitude: '26.1027202'},
              { categorie: 'depozit', sub_categorie: 'depozit', latitude: '44.3190159', longitude: '23.7965614'},
              { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.0687385', longitude: '23.5704398'},
-             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.3469264', longitude: '25.3557638'}
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.3469264', longitude: '25.3557638'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '45.2716092', longitude: '27.9742932'}
             ]
         };
             this.handleChange1 = this.handleChange1.bind(this);
