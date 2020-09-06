@@ -15,11 +15,11 @@ class AdminPage extends Component {
             checked2: false,
             customers: [
              { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.770920', longitude: '23.589920'},
-             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442' }
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442'}
             ]
         };
-        this.handleChange1 = this.handleChange1.bind(this);
-        this.handleChange2 = this.handleChange2.bind(this);
+            this.handleChange1 = this.handleChange1.bind(this);
+            this.handleChange2 = this.handleChange2.bind(this);
         }
 
         handleChange1() {
@@ -46,7 +46,6 @@ class AdminPage extends Component {
             this.state.customers = []
         }
 
-
         }
          componentDidMount() {
              this.findAllCustomers();
@@ -54,15 +53,17 @@ class AdminPage extends Component {
 
         findAllCustomers(){
              getAllPartners((result) => {
-             this.setState({customers: result}); console.log(result)})
-             console.log("pppppppppppppppppppp");
-              console.log(this.state.customers)
-             console.log("ooooooooooo");
+                this.setState(prevState => ({
+                    customers: [...prevState.customers, ...result]
+                  }))
+                console.log(result)
+            })
          }
 
     render() {
 
     const { location } = this.state;
+    console.log("customers: ", this.state.customers)
 
     return (
         <div className="myContainer">
