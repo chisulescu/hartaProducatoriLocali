@@ -66,7 +66,10 @@ class AdminPage extends Component {
                 console.log(result)
             })
          }
-
+         logout = () => {
+            console.log('apasaat');
+            this.props.logout();
+         }
     render() {
 
     const { location } = this.state;
@@ -101,11 +104,11 @@ class AdminPage extends Component {
                 </div>
             </div>
             <div className="custom2">
-                <div class="navigation">
-                    <a class="button" href="">
-                        <img src="https://pbs.twimg.com/profile_images/378800000639740507/fc0aaad744734cd1dbc8aeb3d51f8729_400x400.jpeg"></img>
-                        <div class="logout">LOGOUT</div>
-                    </a>
+                <div className="navigation">
+                    <div className="button" >
+                        <img className="imagine" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Sigla_guvernului_Rom%C3%A2niei_versiunea_2016_cu_coroan%C4%83.png/230px-Sigla_guvernului_Rom%C3%A2niei_versiunea_2016_cu_coroan%C4%83.png"></img>
+                        <div onClick={this.logout} className="logout">LOGOUT</div>
+                    </div>
                 </div>
                 <AdminMap
                     name="location"

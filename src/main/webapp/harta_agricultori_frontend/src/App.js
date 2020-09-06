@@ -53,7 +53,7 @@ render () {
                       <Register />
                     </Route>
                     <Route path="/parteneri" exact component={Partener}/>
-                    <PrivateRoute authed={this.state.authed} path='/adminPage' component={AdminPage} />
+                    <PrivateRoute authed={this.state.authed} path='/adminPage' logOut={this.disableAuthed} component={AdminPage} />
                   </Switch>
                 </Col>
             </Row>
