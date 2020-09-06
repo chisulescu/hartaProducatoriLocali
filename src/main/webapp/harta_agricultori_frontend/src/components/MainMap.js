@@ -21,9 +21,9 @@ class MainMap extends React.Component {
           };
 
         initialState = {
-            lat: 46.770920,
-            lng: 23.589920,
-            zoom: 10
+            lat: 46.2201975,
+            lng: 24.7934573,
+            zoom: 6.5
           };
 
        toggleDraggable = () => {
