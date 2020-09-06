@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, Button} from 'react-bootstrap';
+import {Navbar, Nav, Button, Form, FormControl} from 'react-bootstrap';
 import {Link, withRouter} from 'react-router-dom';
 
 class NavigationBar extends React.Component {
@@ -21,14 +21,17 @@ render () {
                         {this.props.isAuthed &&
                             <Link to={"adminPage"} className="nav-link">Admin Page</Link>
                         }
-                        {!this.props.isAuthed &&
 
-                            <Link to={"login"} className="nav-link">Login</Link>
-                        }
-                        {this.props.isAuthed &&
-                            <Button onClick={this.props.logout} className="nav-link">Logout</Button>
-                        }
                     </Nav>
+                    <Form inline>
+                    {!this.props.isAuthed &&
+
+                    <Link to={"login"} className="nav-link">Login</Link>
+                    }
+                    {this.props.isAuthed &&
+                    <Button onClick={this.props.logout} className="nav-link">Logout</Button>
+                    }
+                    </Form>
                 </Navbar>
             }
         </div>

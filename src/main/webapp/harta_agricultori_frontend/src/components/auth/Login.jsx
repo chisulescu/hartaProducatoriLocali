@@ -52,7 +52,7 @@ class Login extends React.Component {
     const { navigate, username, password } = this.state;
 
     if (navigate) {
-      return <Redirect to="/home" push={true} />
+      return <Redirect to="/adminPage" push={true} />
     }
 
     return (

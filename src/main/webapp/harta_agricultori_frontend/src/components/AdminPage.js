@@ -92,7 +92,13 @@ class AdminPage extends Component {
                     />
                 </div>
             </div>
-            <div className="shadow custom2">
+            <div className="custom2">
+                <div class="navigation">
+                    <a class="button" href="">
+                        <img src="https://pbs.twimg.com/profile_images/378800000639740507/fc0aaad744734cd1dbc8aeb3d51f8729_400x400.jpeg"></img>
+                        <div class="logout">LOGOUT</div>
+                    </a>
+                </div>
                 <AdminMap
                     name="location"
                     value={location}
