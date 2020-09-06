@@ -116,6 +116,7 @@ class AdminMap extends React.Component {
                       url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
                     {this.props.customers.map((customer) => {
+                      console.log('Categggggggggggg');
                       console.log(customer.categorie)
                       let icon = null;
                       switch (customer.categorie) {
@@ -124,7 +125,7 @@ class AdminMap extends React.Component {
                           break;
                         case "cereale":
                           icon = this.wheatIcon;
-                          break;
+                              break;
                         case "legume":
                           icon = this.vegetableIcon;
                           break;

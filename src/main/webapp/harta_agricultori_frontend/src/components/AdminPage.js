@@ -13,7 +13,10 @@ class AdminPage extends Component {
             location: '',
             checked1: false,
             checked2: false,
-            customers: []
+            customers: [
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '46.770920', longitude: '23.589920'},
+             { categorie: 'depozit', sub_categorie: 'depozit', latitude: '47.158455', longitude: '27.601442' }
+            ]
         };
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
@@ -30,23 +33,31 @@ class AdminPage extends Component {
                 checked2: !prevState.checked2
               }));
         }
+        componentDidUpdate() {
 
+        console.log("Switch 1");
+        console.log(this.state.checked1);
+        console.log("Switch 2");
+        console.log(this.state.checked2);
+
+        if (this.state.checked1 && this.state.checked2){
+            this.findAllCustomers();
+        } else if  (this.state.checked1 && !this.state.checked2) {
+            this.state.customers = []
+        }
+
+
+        }
          componentDidMount() {
              this.findAllCustomers();
          }
 
         findAllCustomers(){
-             getAllPartners((result) => {this.setState({customers: result}); console.log(result)})
+             getAllPartners((result) => {
+             this.setState({customers: result}); console.log(result)})
              console.log("pppppppppppppppppppp");
-              this.state.customers.map((customer) => (
-              console.log(customer)
-             ))
-             // axios.get("http://localhost:8080/customers")
-             // .then(response => response.data)
-             // .then((data) => {
-             //     this.setState({customers: data});
-             //     console.log(data)
-             // });
+              console.log(this.state.customers)
+             console.log("ooooooooooo");
          }
 
     render() {
