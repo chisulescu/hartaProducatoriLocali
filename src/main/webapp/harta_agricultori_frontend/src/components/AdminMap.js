@@ -127,8 +127,6 @@ class AdminMap extends React.Component {
                       url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
                     {this.props.customers.map((customer) => {
-                      console.log('Categggggggggggg');
-                      console.log(customer.categorie)
                       let icon = null;
                       switch (customer.categorie) {
                         case "carne":
@@ -153,6 +151,7 @@ class AdminMap extends React.Component {
                           icon = this.questionIcon;
                           break;
                       }
+                      // console.log(customer.latitude)
                       return (
                       <Marker
                          position={[customer.latitude, customer.longitude]}
